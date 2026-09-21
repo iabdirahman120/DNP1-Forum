@@ -4,3 +4,8 @@ obj/
 .vs/
 *.user
 .DS_Store
+
+# runtime-data fra CLI
+users.json
+posts.json
+comments.json
