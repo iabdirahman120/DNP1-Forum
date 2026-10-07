@@ -1,0 +1,64 @@
+@WebAPI_HostAddress = http://localhost:5169
+
+### Create user
+POST {{WebAPI_HostAddress}}/users
+Content-Type: application/json
+
+{ "username": "alice", "password": "secret" }
+
+### Get users, filtered by username
+GET {{WebAPI_HostAddress}}/users?username=ali
+
+### Get single user
+GET {{WebAPI_HostAddress}}/users/1
+
+### Update user
+PUT {{WebAPI_HostAddress}}/users/1
+Content-Type: application/json
+
+{ "username": "alice2", "password": "secret" }
+
+### Create post
+POST {{WebAPI_HostAddress}}/posts
+Content-Type: application/json
+
+{ "title": "First post", "body": "Hello forum", "userId": 1 }
+
+### Get posts, filtered by title and author
+GET {{WebAPI_HostAddress}}/posts?title=first&username=alice2
+
+### Get single post with comments
+GET {{WebAPI_HostAddress}}/posts/1?includeComments=true
+
+### Update post
+PUT {{WebAPI_HostAddress}}/posts/1
+Content-Type: application/json
+
+{ "title": "First post, edited", "body": "Hello again" }
+
+### Create comment
+POST {{WebAPI_HostAddress}}/comments
+Content-Type: application/json
+
+{ "body": "Nice post", "postId": 1, "userId": 1 }
+
+### Get comments, filtered by post and user
+GET {{WebAPI_HostAddress}}/comments?postId=1&userId=1
+
+### Get comments of a post
+GET {{WebAPI_HostAddress}}/posts/1/comments
+
+### Update comment
+PUT {{WebAPI_HostAddress}}/comments/1
+Content-Type: application/json
+
+{ "body": "Nice post, edited" }
+
+### Delete comment
+DELETE {{WebAPI_HostAddress}}/comments/1
+
+### Delete post
+DELETE {{WebAPI_HostAddress}}/posts/1
+
+### Delete user
+DELETE {{WebAPI_HostAddress}}/users/1
